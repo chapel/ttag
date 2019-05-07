@@ -37,3 +37,17 @@ export interface BindedFunctions {
 }
 
 export function c(context: string): BindedFunctions;
+
+export function init(): {
+    t(strings: TemplateStringsArray, ...expr: any[]): string;
+    jt(strings: TemplateStringsArray, ...expr: any[]): string | string[];
+    msgid(strings: TemplateStringsArray, ...expr: any[]): StringWithRawData;
+    gettext(id: string): string;
+    ngettext(...args: Array<StringWithRawData | string | number>): string;
+    addLocale(locale: string, data: LocaleData): void;
+    useLocale(locale: string): void;
+    setDedent(value: boolean): void;
+    setDefaultLang(lang: string): void;
+    useLocales(locales: string[]): void;
+    c(context: string): BindedFunctions;
+};
